@@ -4,6 +4,8 @@ const express = require('express');
 // Muestra en la terminal mensajes de quien está tratando de acceder a mi servidor
 const logger = require('morgan');
 
+const cookieParser = require('cookie-parser');
+
 // Control de acceso HTTP
 const cors = require('cors');
 
@@ -26,4 +28,5 @@ module.exports = app => {
     // Acceso a la propiedad "body" en la peticion
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
+    app.use(cookieParser())
 };
